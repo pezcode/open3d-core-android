@@ -2,7 +2,7 @@
 
 CMake scripts for cross-compiling the core library of [Open3D](http://www.open3d.org/) for Android and linking to it with Android Studio.
 
-Tested for:
+Tested with:
 
 - Windows 10 1803
 - CMake 3.12.0
@@ -14,7 +14,7 @@ Should work on Linux hosts, too, but it's untested.
 
 ## Patches
 
-A lot Open3D revolves around visualisation. Since that code relies on OpenGL and X11 (both of which don't exist on Android) I removed it from being compiled and included. The patches to its CMakeLists.txt can be found in [open3d-android.patch](open3d-android.patch). Essentially it:
+A lot of Open3D revolves around visualisation. Since that code relies on OpenGL and X11 (both of which don't exist on Android) I removed it from being compiled and included. The patches to its CMakeLists.txt can be found in [open3d-android.patch](open3d-android.patch). Essentially it:
 
 - prevents GLEW and GLFW from being built and linked
 - removes the Visualization and Tools modules
