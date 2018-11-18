@@ -60,12 +60,12 @@ android {
 
 2. Add the shared libraries. The template CMakeLists.txt copies the appropriate shared libraries to their own ABI folders under libs/ in the main source directory. To make Gradle find and package them, [add them to the source set](https://developer.android.com/studio/projects/gradle-external-native-builds#jniLibs):
 ```groovy
-# android {
-#   ...
-#   sourceSets {
-#     main {
-#       jniLibs.srcDirs = ['libs']
-#     }
-#   }
-# }
+android {
+  ...
+  sourceSets {
+    main {
+      jniLibs.srcDirs = ['libs']
+    }
+  }
+}
 ```
