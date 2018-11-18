@@ -1,0 +1,67 @@
+diff --git a/3rdparty/CMakeLists.txt b/3rdparty/CMakeLists.txt
+index b0590a6..eeb69e8 100644
+--- a/3rdparty/CMakeLists.txt
++++ b/3rdparty/CMakeLists.txt
+@@ -57,8 +57,8 @@ else ()
+ endif ()
+ 
+ if (BUILD_GLEW)
+-    add_subdirectory(glew)
+-    INSTALL_HEADERS(glew)
++    #add_subdirectory(glew)
++    #INSTALL_HEADERS(glew)
+ endif ()
+ 
+ # GLFW
+@@ -93,10 +93,10 @@ else ()
+ endif ()
+ 
+ if (BUILD_GLFW)
+-    add_subdirectory(GLFW)
+-    INSTALL_HEADERS(GLFW)
+-    list(APPEND GLFW_INCLUDE_DIRS ${OPENGL_INCLUDE_DIR})
+-    list(APPEND GLFW_LIBRARIES    ${OPENGL_gl_LIBRARY})
++    #add_subdirectory(GLFW)
++    #INSTALL_HEADERS(GLFW)
++    #list(APPEND GLFW_INCLUDE_DIRS ${OPENGL_INCLUDE_DIR})
++    #list(APPEND GLFW_LIBRARIES    ${OPENGL_gl_LIBRARY})
+ endif ()
+ 
+ # JPEG
+diff --git a/src/CMakeLists.txt b/src/CMakeLists.txt
+index 5b1ffcc..21feffa 100644
+--- a/src/CMakeLists.txt
++++ b/src/CMakeLists.txt
+@@ -7,8 +7,8 @@ endmacro(ADD_OPEN3D_MODULE)
+ 
+ add_subdirectory(Core)
+ add_subdirectory(IO)
+-add_subdirectory(Visualization)
+-add_subdirectory(Tools)
++#add_subdirectory(Visualization)
++#add_subdirectory(Tools)
+ 
+ # Unit tests
+ if (BUILD_UNIT_TESTS)
+@@ -24,8 +24,8 @@ endif ()
+ # reference: https://cmake.org/cmake/help/v3.12/command/add_library.html#object-libraries
+ add_library(${CMAKE_PROJECT_NAME} Open3DConfig.h Open3DConfig.cpp
+             $<TARGET_OBJECTS:Core>
+-            $<TARGET_OBJECTS:IO>
+-            $<TARGET_OBJECTS:Visualization>)
++            $<TARGET_OBJECTS:IO>)
++            #$<TARGET_OBJECTS:Visualization>)
+ 
+ # headless rendering
+ if (ENABLE_HEADLESS_RENDERING)
+@@ -33,8 +33,8 @@ if (ENABLE_HEADLESS_RENDERING)
+     include_directories(${OSMESA_INCLUDE_DIR})
+     target_link_libraries(${CMAKE_PROJECT_NAME} ${OSMESA_LIBRARY})
+ else ()
+-    find_package(OpenGL REQUIRED)
+-    target_link_libraries(${CMAKE_PROJECT_NAME} ${OPENGL_LIBRARIES})
++    #find_package(OpenGL REQUIRED)
++    #target_link_libraries(${CMAKE_PROJECT_NAME} ${OPENGL_LIBRARIES})
+ endif ()
+ 
+ target_link_libraries(${CMAKE_PROJECT_NAME}
