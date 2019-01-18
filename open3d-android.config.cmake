@@ -24,4 +24,4 @@ set(BUILD_TINYFILEDIALOGS ON CACHE BOOL "")
 # see https://cmake.org/cmake/help/latest/variable/CMAKE_BUILD_TYPE.html
 # instead use:
 # cmake --build . --config Release
-set(CMAKE_BUILD_TYPE RELEASE CACHE STRING "")
+set(CMAKE_BUILD_TYPE Release CACHE STRING "")

@@ -28,7 +28,7 @@ endif()
 set(open3d-abi-path ${OPEN3D_PATH}/open3d-${ANDROID_ABI})
 
 # find lib/cmake/Open3D/Open3DConfig.cmake
-find_package(Open3D 0.4
+find_package(Open3D 0.5.0 # exact match required (major, minor, patch)
              REQUIRED
              PATHS ${open3d-abi-path}
              # don't look anywhere except in the path(s) we specify
@@ -76,7 +76,7 @@ add_library(Open3D SHARED IMPORTED)
 set_target_properties(Open3D PROPERTIES
                       IMPORTED_LOCATION ${open3d-lib})
 # You can't directly add interface properties to imported libraries on CMake < 3.11
-# Android Studio 3.2.1 ships with CMake 3.6
+# Android Studio 3.3.0 ships with CMake 3.10
 # this is a workaround
 # (see https://gitlab.kitware.com/cmake/cmake/issues/15689)
 set_property(TARGET Open3D APPEND PROPERTY INTERFACE_INCLUDE_DIRECTORIES ${Open3D_INCLUDE_DIRS})

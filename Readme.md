@@ -4,11 +4,11 @@ CMake scripts for cross-compiling the core library of [Open3D](http://www.open3d
 
 Tested with:
 
-- Windows 10 1803
+- Windows 10 1809
 - CMake 3.12.0
-- Android Studio 3.2.1 with Gradle plugin 3.2.1
-- Bundled Android NDK r18b
-- Open3D 0.4.0
+- Android Studio 3.3.0 with Gradle plugin 3.3.0
+- Bundled Android NDK r19b
+- Open3D 0.5.0
 
 Should work on Linux hosts, too, but it's untested.
 
@@ -19,7 +19,7 @@ A lot of Open3D revolves around visualisation. Since that code relies on OpenGL 
 - prevents GLEW and GLFW from being built and linked
 - removes the Visualization and Tools modules
 
-The patch file itself was created with `git diff > open3d-android.patch`.
+The patch file itself was created with `git diff --submodule=diff > open3d-android.patch` (requires Git 2.14.0 or higher).
 
 ## Compiling
 

@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.0.0)
 project(superbuild NONE)
 
 # find Android NDK
-# Copied from SDK/cmake/<version/android.toolchain.cmake
+# Copied from SDK/cmake/<version>/android.toolchain.cmake
 if(NOT ANDROID_NDK)
 	if(DEFINED ENV{ANDROID_NDK_HOME}
 			AND IS_DIRECTORY "$ENV{ANDROID_NDK_HOME}")
@@ -30,7 +30,8 @@ set(android_toolchain ${ANDROID_NDK}/build/cmake/android.toolchain.cmake)
 # this populates NDK_DEFAULT_ABIS
 include(${ANDROID_NDK}/build/cmake/abis.cmake)
 
-# git diff > open3d-android.patch
+# git diff --submodule=diff > open3d-android.patch
+# requires Git 2.14.0
 # don't use PowerShell, it screws up encoding
 set(open3d_patch ${CMAKE_CURRENT_SOURCE_DIR}/open3d-android.patch)
 set(open3d_config ${CMAKE_CURRENT_SOURCE_DIR}/open3d-android.config.cmake)
@@ -51,9 +52,11 @@ macro(fetch_open3d)
     open3d-fetch
     # no SOURCE_DIR, let CMake figure it out based on EP_BASE
     GIT_REPOSITORY https://github.com/IntelVCL/Open3D.git
-    GIT_TAG v0.4.0
-    UPDATE_COMMAND git apply ${open3d_patch}
+    GIT_TAG v0.5.0
+    GIT_SHALLOW true
+    PATCH_COMMAND ${GIT_EXECUTABLE} apply ${open3d_patch}
     # override default commands so CMake isn't invoked
+    UPDATE_COMMAND ""
     CONFIGURE_COMMAND ""
     BUILD_COMMAND ""
     INSTALL_COMMAND ""
