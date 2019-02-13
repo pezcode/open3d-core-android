@@ -1,3 +1,4 @@
+Submodule 3rdparty contains modified content
 diff --git a/3rdparty/CMakeLists.txt b/3rdparty/CMakeLists.txt
 index b0590a6..eeb69e8 100644
 --- a/3rdparty/CMakeLists.txt
@@ -29,7 +30,7 @@ index b0590a6..eeb69e8 100644
  
  # JPEG
 diff --git a/src/CMakeLists.txt b/src/CMakeLists.txt
-index 5b1ffcc..21feffa 100644
+index 9475751..f6de7a9 100644
 --- a/src/CMakeLists.txt
 +++ b/src/CMakeLists.txt
 @@ -7,8 +7,8 @@ endmacro(ADD_OPEN3D_MODULE)
