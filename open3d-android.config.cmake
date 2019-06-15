@@ -19,6 +19,7 @@ set(BUILD_JPEG ON CACHE BOOL "")
 set(BUILD_JSONCPP ON CACHE BOOL "")
 set(BUILD_PNG ON CACHE BOOL "")
 set(BUILD_TINYFILEDIALOGS ON CACHE BOOL "")
+set(BUILD_QHULL ON CACHE BOOL "")
 
 # doesn't work for VS
 # see https://cmake.org/cmake/help/latest/variable/CMAKE_BUILD_TYPE.html
